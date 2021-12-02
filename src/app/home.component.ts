@@ -2,11 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   template: `
-    <ul>
-      <li >
-      <a ></a>
-      </li>
-    </ul>
+    <h1>Click on day above</h1>
   `,
   styles: [
     `
