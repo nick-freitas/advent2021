@@ -17,6 +17,6 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  days = [1, 2]
+  days = [1, 2, 3]
   title = 'advent2021';
 }

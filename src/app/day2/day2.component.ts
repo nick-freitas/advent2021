@@ -63,6 +63,8 @@ export class Day2Component extends BaseDayComponent implements OnInit {
           aim += command.mag * aim_mod
           break;
       }
+
+      console.log(hor, ver)
     })
 
     this.answer2 = [hor, ver, aim, hor * ver]

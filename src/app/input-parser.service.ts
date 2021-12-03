@@ -28,6 +28,8 @@ export class InputParserService {
           let mag = parseInt(_mag)
           return { dir, mag }
         })
+      case 3:
+        return input.split('\n')
       default:
         return input;
     }
