@@ -76,5 +76,4 @@ export class Day3Component extends BaseDayComponent implements OnInit {
       return msb_bytes[0]
     }
   }
-
-
+}
