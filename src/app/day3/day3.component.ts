@@ -13,7 +13,7 @@ export class Day3Component extends BaseDayComponent implements OnInit {
     super(3, inputParser);
   }
 
-  partOne() {
+  partOne(): void {
     const numOfBits = this.input[0].length;
     this.answer1 = [numOfBits, this.input[0]]
 
@@ -37,43 +37,45 @@ export class Day3Component extends BaseDayComponent implements OnInit {
     ]
   }
 
-  partTwo() {
+  partTwo(): void {
     const numOfBits = this.input[0].length;
     this.answer2 = [numOfBits, this.input[0]]
 
-    const msb_bytes = this.p2helper(1)
-    const lsb_bytes = this.p2helper(0)
+    const msByte = this.p2helper(1)
+    const lsByte = this.p2helper(0)
 
 
     this.answer2 = [
-      parseInt(msb_bytes, 2),
-      parseInt(lsb_bytes, 2),
-      parseInt(msb_bytes, 2) * parseInt(lsb_bytes, 2)
+      parseInt(msByte, 2),
+      parseInt(lsByte, 2),
+      parseInt(msByte, 2) * parseInt(lsByte, 2)
     ]
   }
 
-  p2helper(vtk: number) {
+  p2helper(vtk: number): any {
     let bitNumber = 0
-    let msb_bytes = this.input
-    while (bitNumber < this.input[0].length && msb_bytes.length > 1) {
+    let sByte = this.input
+    while (bitNumber < this.input[0].length && sByte.length > 1) {
       // console.log('pre', bitNumber, msb_bytes)
       let bits: any = [0, 0];
 
-      for (let com of msb_bytes) {
+      for (let com of sByte) {
         bits[com.charAt(bitNumber)]++
-        // console.log(com.charAt(bitNumber), bits)
-
-        let msb = bits[0] > bits[1] ? !vtk : vtk
-        if (bits[0] === bits[1]) msb = vtk
-
-        const new_msb_bytes = msb_bytes.filter((byte: any) => byte.charAt(bitNumber) == msb)
-        msb_bytes = new_msb_bytes
-
-        // console.log('post', bitNumber, msb, msb_bytes, bits)
-        bitNumber++
       }
+      // console.log(com.charAt(bitNumber), bits)
 
-      return msb_bytes[0]
+      let msb = bits[0] > bits[1] ? !vtk : vtk
+      if (bits[0] === bits[1]) msb = vtk
+
+      const new_msb_bytes = sByte.filter((byte: any) => byte.charAt(bitNumber) == msb)
+      sByte = new_msb_bytes
+
+      // console.log('post', bitNumber, msb, msb_bytes, bits)
+      bitNumber++
     }
+
+    return sByte[0]
   }
 }
+
+
